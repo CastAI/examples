@@ -2,4 +2,4 @@
 
 set -e
 
-kubectl delete ns yugabyte-aws yugabyte-gcp yugabyte-do boutique
+kubectl delete ns yugabyte-aws yugabyte-azure yugabyte-gcp yugabyte-do boutique

@@ -1,6 +1,6 @@
 isMultiAz: True
 
-AZ: gcp
+AZ: azure
 
 masterAddresses: "yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-azure.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
 
@@ -35,10 +35,10 @@ resource:
 
 gflags:
   master:
-    placement_cloud: "gcp"
-    placement_region: "europe-west3"
-    placement_zone: "europe-west3-c"
+    placement_cloud: "azure"
+    placement_region: "germanywestcentral"
+    placement_zone: ""
   tserver:
-    placement_cloud: "gcp"
-    placement_region: "europe-west3"
-    placement_zone: "europe-west3-c"
+    placement_cloud: "azure"
+    placement_region: "germanywestcentral"
+    placement_zone: ""

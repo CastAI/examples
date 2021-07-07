@@ -2,7 +2,7 @@ isMultiAz: True
 
 AZ: do
 
-masterAddresses: "yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
+masterAddresses: "yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-azure.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
 
 enableLoadBalancer: false
 
@@ -15,7 +15,7 @@ storage:
 replicas:
   master: 1
   tserver: 1
-  totalMasters: 3
+  totalMasters: 4
 
 resource:
   master:
@@ -42,4 +42,3 @@ gflags:
     placement_cloud: "do"
     placement_region: "fra1"
     placement_zone: ""
-

@@ -8,7 +8,7 @@ metadata:
   labels:
     app: "yb-master"
     heritage: "Helm"
-    release: "yuga-aws"
+    release: "yuga-azure"
     chart: "yugabyte"
     component: "yugabytedb"
     service-type: "headless"
@@ -30,7 +30,7 @@ metadata:
   labels:
     app: "yb-tserver"
     heritage: "Helm"
-    release: "yuga-aws"
+    release: "yuga-azure"
     chart: "yugabyte"
     component: "yugabytedb"
     service-type: "headless"
@@ -61,11 +61,11 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: "yb-master"
-  namespace: "yugabyte-aws"
+  namespace: "yugabyte-azure"
   labels:
     app: "yb-master"
     heritage: "Helm"
-    release: "yuga-aws"
+    release: "yuga-azure"
     chart: "yugabyte"
     component: "yugabytedb"
 spec:
@@ -81,7 +81,7 @@ spec:
           volume.beta.kubernetes.io/storage-class: cast-block-storage
         labels:
           heritage: "Helm"
-          release: "yuga-aws"
+          release: "yuga-azure"
           chart: "yugabyte"
           component: "yugabytedb"
       spec:
@@ -97,7 +97,7 @@ spec:
           volume.beta.kubernetes.io/storage-class: cast-block-storage
         labels:
           heritage: "Helm"
-          release: "yuga-aws"
+          release: "yuga-azure"
           chart: "yugabyte"
           component: "yugabytedb"
       spec:
@@ -122,7 +122,7 @@ spec:
       labels:
         app: "yb-master"
         heritage: "Helm"
-        release: "yuga-aws"
+        release: "yuga-azure"
         chart: "yugabyte"
         component: "yugabytedb"
     spec:
@@ -136,7 +136,7 @@ spec:
               - key: topology.storage.csi.cast.ai/csp
                 operator: In
                 values:
-                - aws
+                - azure
         
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -217,8 +217,9 @@ spec:
           - "--num_cpus=1"
           - "--undefok=num_cpus,enable_ysql"
           - "--default_memory_limit_to_ram_ratio=0.85"
-          - "--placement_cloud=aws"
-          - "--placement_region=eu-central-1"
+          - "--placement_cloud=azure"
+          - "--placement_region=germanywestcentral"
+          - "--placement_zone="
           
         
         ports:
@@ -269,11 +270,11 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: "yb-tserver"
-  namespace: "yugabyte-aws"
+  namespace: "yugabyte-azure"
   labels:
     app: "yb-tserver"
     heritage: "Helm"
-    release: "yuga-aws"
+    release: "yuga-azure"
     chart: "yugabyte"
     component: "yugabytedb"
 spec:
@@ -289,7 +290,7 @@ spec:
           volume.beta.kubernetes.io/storage-class: cast-block-storage
         labels:
           heritage: "Helm"
-          release: "yuga-aws"
+          release: "yuga-azure"
           chart: "yugabyte"
           component: "yugabytedb"
       spec:
@@ -305,7 +306,7 @@ spec:
           volume.beta.kubernetes.io/storage-class: cast-block-storage
         labels:
           heritage: "Helm"
-          release: "yuga-aws"
+          release: "yuga-azure"
           chart: "yugabyte"
           component: "yugabytedb"
       spec:
@@ -330,7 +331,7 @@ spec:
       labels:
         app: "yb-tserver"
         heritage: "Helm"
-        release: "yuga-aws"
+        release: "yuga-azure"
         chart: "yugabyte"
         component: "yugabytedb"
     spec:
@@ -344,7 +345,7 @@ spec:
               - key: topology.storage.csi.cast.ai/csp
                 operator: In
                 values:
-                - aws
+                - azure
         
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -423,9 +424,9 @@ spec:
           - "--stderrthreshold=0"
           - "--num_cpus=1"
           - "--undefok=num_cpus,enable_ysql"
-          - "--placement_cloud=aws"
-          - "--placement_region=eu-central-1"
-          - "--placement_zone=eu-central-1a"
+          - "--placement_cloud=azure"
+          - "--placement_region=germanywestcentral"
+          - "--placement_zone="
           
         
         ports:

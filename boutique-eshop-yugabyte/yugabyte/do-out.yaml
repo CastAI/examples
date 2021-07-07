@@ -205,8 +205,8 @@ spec:
           - "--webserver_interface=0.0.0.0"
           
           
-          - "--master_addresses=yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100, yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100, yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
-          - "--replication_factor=3"
+          - "--master_addresses=yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-azure.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
+          - "--replication_factor=4"
           
           
           - "--enable_ysql=true"
@@ -219,7 +219,7 @@ spec:
           - "--default_memory_limit_to_ram_ratio=0.85"
           - "--placement_cloud=do"
           - "--placement_region=fra1"
-          - "--placement_zone=0"
+          - "--placement_zone="
           
         
         ports:
@@ -417,7 +417,7 @@ spec:
           - "--pgsql_proxy_bind_address=0.0.0.0:5433"
           
           
-          - "--tserver_master_addrs=yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100, yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100, yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
+          - "--tserver_master_addrs=yb-master-0.yb-masters.yugabyte-aws.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-azure.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-gcp.svc.cluster.local:7100,yb-master-0.yb-masters.yugabyte-do.svc.cluster.local:7100"
           
           - "--metric_node_name=$(HOSTNAME)"
           - "--memory_limit_hard_bytes=3649044480"
@@ -426,7 +426,7 @@ spec:
           - "--undefok=num_cpus,enable_ysql"
           - "--placement_cloud=do"
           - "--placement_region=fra1"
-          - "--placement_zone=0"
+          - "--placement_zone="
           
         
         ports:
